@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require('express');
+const router = express.Router();
+const { getMovie, SetMovie, PutMovie, DeleteMovie, getAllMovies, GetSpecific } = require('../controllers/controller');
+router.route('/').get(getMovie).post(SetMovie);
+router.route('/movies').get(getAllMovies);
+router.route('/movies/:id').get(GetSpecific);
+router.route('/:id').put(PutMovie).delete(DeleteMovie);
+module.exports = router;
